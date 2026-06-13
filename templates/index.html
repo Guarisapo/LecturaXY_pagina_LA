@@ -1,65 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
- <meta http-equiv="refresh" content="2"></meta>
-<style>
-	#tabla{border-collapse:collapse;
-		}
-	#q1,#q2,#q3,#q4{	/*Varios id con mismas características*/
-		width:100px;
-		height:100px;
-		border:1px solid black;
-		text-align:center;
-		}
-	#q1{background-color:	/*Cuadrante 1*/
-		{% if ejeX > 0 and ejeY > 0 %}
-			lightblue;
-		{% else %}
-			gray;
-		{% endif %}
-		}
-	#q2{background-color:	/*Cuadrante 2*/
-		{% if ejeX > 0 and ejeY < 0 %}
-			lightblue;
-		{% else %}
-			gray;
-		{% endif %}
-		}
-	#q3{background-color:	/*Cuadrante 3*/
-		{% if ejeX < 0 and ejeY > 0 %}
-			lightblue;
-		{% else %}
-			gray;
-		{% endif %}
-		}
-	#q4{background-color:	/*Cuadrante 4*/
-		{% if ejeX < 0 and ejeY < 0 %}
-			lightblue;
-		{% else %}
-			gray;
-		{% endif %}
-		}
-</style>
-
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <title>Posición XY - Matriz 4x4</title>
+    
+    <style>
+        #tabla {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        /* Una sola clase para definir el tamaño de los 16 cuadros */
+        .celda {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        /* Estado de la Clase */
+        .active { 
+            background-color: lightgreen; 
+        }
+        .inactive { 
+            background-color: gray; 
+            color: #ffffff; 
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>Posición XY</h1>
+    <h1>Posición XY (Panel 4x4)</h1>
+    <h2>Explicacion:</h2>
+    <h3>A grandes rasgos es un plano carteciano, los Q1,Q2,Q3 y Q3 son los cuadrantes, y los S1,S2,S3 y S4 son los Sub-Cuadrantes</h3>
+    <p><strong>X =</strong> {{ ejeX }}</p>
+    <p><strong>Y =</strong> {{ ejeY }}</p>
 
-<p>X = {{ ejeX }}</p>
-<p>Y = {{ ejeY }}</p>
+    <table id="tabla">
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q2_S1</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q2_S2</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q1_S2</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q1_S1</td>
+        </tr>
 
-<table id="tabla">
-<tr id="cuadros">
-    <td id="q1">Q1</td>
-    <td id="q2">Q2</td>
-</tr>
-<tr>
-    <td id="q3">Q3</td>
-    <td id="q4">Q4</td>
-</tr>
-</table>
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q2_S3</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q2_S4</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q1_S4</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q1_S3</td>
+        </tr>
+
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q3_S1</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q3_S2</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q4_S2</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q4_S1</td>
+        </tr>
+
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q3_S3</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q3_S4</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q4_S4</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q4_S3</td>
+        </tr>
+    </table>
 
 </body>
 </html>
