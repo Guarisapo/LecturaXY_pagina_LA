@@ -1,23 +1,18 @@
 # Actividad Base: Flask + DataXY
 
 Repositorio creado para el ramo de Desarrollo de Software para Hardware
-Por: Benjamin Alveal
+**Desarrollado por:** Benjamín Alveal
 ---
 
-## Explicacion
+## Explicación
 
-Se expandio la matriz de 2x2 a 4x4, ya que esta funcionaba como un plano cartesiano
-se designo cuadrantes y sub-cuadrantes
+Se expandió la interfaz de una matriz de 2x2 a una de 4x4 para representar un plano cartesiano subdividido en 4 cuadrantes principales, donde cada uno contiene 4 sub-cuadrantes. 
 
-El codigo dado por el profesor utilizaba, ids para los cuadros, pero en el codigo nuevo 
-se creo una clase y 2 estados (activo e inactivo), lo que facilito al momento de realizar el codigo 
-y el corregirlo 
-
+El código original del profesor utilizaba identificadores únicos (id) para cada cuadro; sin embargo, en el nuevo diseño se implementó una clase base junto con dos estados dinámicos (active e inactive). Esto optimizó la estructura del código, facilitando tanto su desarrollo como su posterior mantenimiento y corrección.
 ---
 ## Capturas 
 
-A continuacion se colocan 2 capturas, una del diseño pensado y otra de la matriz funcionando 
-
+A continuación se presentan las capturas correspondientes al proceso de diseño y la posterior visualización de la matriz en ejecución.
 
 ### Diseño de la Matriz
 
@@ -29,10 +24,11 @@ A continuacion se colocan 2 capturas, una del diseño pensado y otra de la matri
 
 ---
 
-## Disculpas por faltar a clases xd
+## Disculpas por faltar a clases
 
-Profe perdoneme por faltar 3 clases seguidas, fue por problemas personales...
-Menos la ultima, a esa falte de flojo *carita triste*
+Profe, perdóneme por faltar 3 clases seguidas, fue por problemas de fuerza mayor...
+Menos la última, a esa clase falte de flojo… pero me puse al día 😀
 
 ---
+
 
