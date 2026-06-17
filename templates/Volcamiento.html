@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <title>Sistema de Alerta de Volcamiento</title>
+    
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f6f9;
+            text-align: center;
+            padding: 20px;
+        }
+        #indicador {
+            border-collapse: separate;
+            border-spacing: 15px; 
+            margin: 30px auto;
+        }
+        .cuadro {
+            width: 120px;
+            height: 120px;
+            border: 3px solid #333;
+            border-radius: 10px; 
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+            font-size: 14px;
+            color: #ffffff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+        /* Estados apagados  */
+        .inactive { 
+            background-color: #2c3e50; 
+            color: #7f8c8d;
+        }
+        /* Estados encendidos  */
+        .rojo-active { 
+            background-color: #ff4757; 
+            color: white;
+            box-shadow: 0 0 15px #ff4757; 
+        }
+        .amarillo-active { 
+            background-color: #ffa502; 
+            color: black;
+            box-shadow: 0 0 15px #ffa502;
+        }
+        .verde-active { 
+            background-color: #2ed573; 
+            color: black;
+            box-shadow: 0 0 15px #2ed573;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Panel de Seguridad: Riesgo de Volcamiento</h1>
+    <h2>Imagine que el celular es una plataforma de material peligroso, esta debe mantenerse estable, ya que si se inclina, se derramara el material peligroso y todos mueren 😨 </h2>
+    <ul>
+    		<li><a href="{{ url_for('index') }}">Ir a la pagina Principal</a></li>
+    		<li><a href="{{ url_for('Matriz') }}">Ir a la pagina de la Matriz</a></li>
+    </ul>
+    
+    <div style="font-size: 18px; margin-bottom: 20px;">
+        <span style="margin-right: 20px;"><strong>Inclinación X:</strong> {{ ejeX }}°</span>
+        <span><strong>Inclinación Y:</strong> {{ ejeY }}°</span>
+    </div>
+
+    <table id="indicador">
+        <tr>
+            <td class="cuadro {% if ejeX <= -6 or ejeY <= -6 %}rojo-active{% else %}inactive{% endif %}">
+                ⚠️<br>PELIGRO<br>(-6 a -10)
+            </td>
+
+            <td class="cuadro {% if (ejeX <= -3 or ejeY <= -3) and (ejeX > -6 and ejeY > -6) %}amarillo-active{% else %}inactive{% endif %}">
+                ⚡<br>PRECAUCIÓN<br>(-3 a -6)
+            </td>
+
+            <td class="cuadro {% if ejeX|abs < 3 and ejeY|abs < 3 %}verde-active{% else %}inactive{% endif %}">
+                ✅<br>SISTEMA<br>ESTABLE
+            </td>
+
+            <td class="cuadro {% if (ejeX >= 3 or ejeY >= 3) and (ejeX < 6 and ejeY < 6) %}amarillo-active{% else %}inactive{% endif %}">
+                ⚡<br>PRECAUCIÓN<br>(3 a 6)
+            </td>
+
+            <td class="cuadro {% if ejeX >= 6 or ejeY >= 6 %}rojo-active{% else %}inactive{% endif %}">
+                ⚠️<br>PELIGRO<br>(6 a 10)
+            </td>
+        </tr>
+</body>
+</html>

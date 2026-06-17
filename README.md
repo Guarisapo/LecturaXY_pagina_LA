@@ -5,7 +5,7 @@ Repositorio creado para el ramo de Desarrollo de Software para Hardware
 
 ---
 
-## Explicación
+## Explicación 1era pagina
 
 Se expandió la interfaz de una matriz de 2x2 a una de 4x4 para representar un plano cartesiano subdividido en 4 cuadrantes principales, donde cada uno contiene 4 sub-cuadrantes. 
 
@@ -13,17 +13,30 @@ El código original del profesor utilizaba identificadores únicos (id) para cad
 
 ---
 
+## Explicacion 2da pagina
+
+Para la segunda pagina, se diseño un panel de seguridad para el monitoreo de maquinaria pesada, las cordenadas recibidas simulan la inclinacion de una plataforma.
+
+Al igual que en la matriz, la interfaz utiliza clases y estados condicionales, esto para facilitar la legibilidad y el desarrollo del codigo.
+
+
+---
+
 ## Capturas 
 
 A continuación se presentan las capturas correspondientes al proceso de diseño y la posterior visualización de la matriz en ejecución.
 
-### Diseño de la Matriz
+### Pagina Principal
 
-![Diseño de la Matriz (en papel)](capturas/diseño.png)
+![Vista de la Pagina Principal](capturas/index.png)
 
-### Captura del HTML en el navegador
+### Captura de la pestaña de la Matriz
 
-![Vista HTML](capturas/Captura_Matriz.png)
+![Vista de la matriz](capturas/Captura_Matriz.png)
+
+### Captura de la pestaña de la simulacion de Volcamiento
+
+![Vista del panel de seguriad](capturas/volcamiento.png)
 
 ---
 

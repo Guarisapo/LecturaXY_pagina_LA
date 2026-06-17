@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="2">
+    <title>Posición XY - Matriz 4x4</title>
+    
+    <style>
+        #tabla {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        /* Una sola clase para definir el tamaño de los 16 cuadros */
+        .celda {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        /* Estado de la Clase */
+        .active { 
+            background-color: lightgreen; 
+        }
+        .inactive { 
+            background-color: gray; 
+            color: #ffffff; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Posición XY (Panel 4x4)</h1>
+    <ul>
+    		<li><a href="{{ url_for('index') }}">Ir a la pagina Principal</a></li>
+    		<li><a href="{{ url_for('Volcamiento') }}">Ir a la pagina de Volcamiento</a></li>
+    </ul>
+    <h2>Explicacion:</h2>
+    <h3>A grandes rasgos es un plano carteciano, los Q1,Q2,Q3 y Q3 son los cuadrantes, y los S1,S2,S3 y S4 son los Sub-Cuadrantes</h3>
+    <p><strong>X =</strong> {{ ejeX }}</p>
+    <p><strong>Y =</strong> {{ ejeY }}</p>
+
+    <table id="tabla">
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q2_S1</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q2_S2</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q1_S2</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= 5 and ejeY <= 10 %}active{% else %}inactive{% endif %}">Q1_S1</td>
+        </tr>
+
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q2_S3</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q2_S4</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q1_S4</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= 0 and ejeY < 5 %}active{% else %}inactive{% endif %}">Q1_S3</td>
+        </tr>
+
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q3_S1</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q3_S2</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q4_S2</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= -5 and ejeY < 0 %}active{% else %}inactive{% endif %}">Q4_S1</td>
+        </tr>
+
+        <tr>
+            <td class="celda {% if ejeX >= -10 and ejeX < -5 and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q3_S3</td>
+            <td class="celda {% if ejeX >= -5  and ejeX < 0  and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q3_S4</td>
+            <td class="celda {% if ejeX >= 0   and ejeX < 5  and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q4_S4</td>
+            <td class="celda {% if ejeX >= 5   and ejeX <= 10 and ejeY >= -10 and ejeY < -5 %}active{% else %}inactive{% endif %}">Q4_S3</td>
+        </tr>
+    </table>
+
+</body>
+</html>

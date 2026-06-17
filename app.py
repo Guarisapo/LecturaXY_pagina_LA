@@ -21,12 +21,31 @@ def leer_sensor():
 
 @app.route('/')
 def index():
-    ejeY, ejeX = leer_sensor() #órden ejes.
+    ejeX, ejeY = leer_sensor() #órden ejes.
     return render_template(
         'index.html',
         ejeX=ejeX,
         ejeY=ejeY
     )
+    
+@app.route('/Matriz')
+def Matriz():
+    ejeX, ejeY = leer_sensor() #órden ejes.
+    return render_template(
+        'Matriz.html',
+        ejeX=ejeX,
+        ejeY=ejeY
+    )
+     
+@app.route('/Volcamiento')
+def Volcamiento():
+    ejeX, ejeY = leer_sensor() #órden ejes.
+    return render_template(
+        'Volcamiento.html',
+        ejeX=ejeX,
+        ejeY=ejeY
+    )
+ 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
  
